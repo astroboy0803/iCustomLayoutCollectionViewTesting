@@ -88,6 +88,11 @@ class LabelCollectionCell: UICollectionViewCell {
     
     // MARK: label autosize height
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        guard #unavailable(iOS 13.0) else {
+            return super.preferredLayoutAttributesFitting(layoutAttributes)
+        }
+        
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
         
 //        label.preferredMaxLayoutWidth = layoutAttributes.frame.width
